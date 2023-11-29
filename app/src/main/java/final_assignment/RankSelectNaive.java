@@ -1,4 +1,4 @@
-package final_assignment.Rank_Select;
+package final_assignment;
 
 public class RankSelectNaive {
       private int[] array;

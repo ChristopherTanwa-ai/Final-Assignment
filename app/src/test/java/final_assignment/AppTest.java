@@ -3,6 +3,7 @@
  */
 package final_assignment;
 
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -24,5 +25,20 @@ public class AppTest {
         assertEquals(expectedResultForNonExisting, sortedArray.Pred(nonExistingElement));
 
         // Add more test cases based on the specific behavior of your Pred method
+    }
+
+  
+    @Test
+    public void testRank() {
+        int[] inputArray = {0, 1, 0, 1, 1, 0, 1, 0};
+        RankSelectLookUp rs = new RankSelectLookUp(inputArray);
+        assertEquals(2, rs.rank(3));
+    }
+
+    @Test
+    public void testSelect() {
+        int[] inputArray = {0, 1, 0, 1, 1, 0, 1, 0};
+        RankSelectLookUp rs = new RankSelectLookUp(inputArray);
+        assertEquals(5, rs.select(3));
     }
 }
