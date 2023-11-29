@@ -44,5 +44,13 @@ public class Skewed_Binary_Search {
         Skewed_Binary_Search.Sorted_Array testSortedArray = new Sorted_Array(inputArray, alpha);
         System.out.println(testSortedArray.Pred(existingElement));
     }
-}}
+}
+
+static class Search_Tree {
+
+    
+}
+
+
+}
 
