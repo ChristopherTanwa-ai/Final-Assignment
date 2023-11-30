@@ -52,7 +52,21 @@ public class RankSelectSpaceEfficient implements RankSelectDataStructures {
     }
 
     public int select(int r){
-        return -1;
+        int low = 0;
+        int high = bitVector.length - 1;
+        while(low <= high){
+            int mid = (low + high)/2;
+            if(rank(mid) == r){
+                return mid+1;
+            }
+            else if(rank(mid) < r){
+                low = mid + 1;
+            }
+            else{
+                high = mid - 1;
+            }
+        }
+        throw new IllegalArgumentException("There does not exist a " + r +"th 1 in the vector");    
     }
 
     public static void main(String[] args) {
@@ -64,5 +78,6 @@ public class RankSelectSpaceEfficient implements RankSelectDataStructures {
         // Example queries
         System.out.println("Rank at position 15: " + rankStructure.rank(15));
         System.out.println("Rank at position 30: " + rankStructure.rank(30));
+        System.out.println("Select at rank 1: " + rankStructure.select(33));
     }
 }

@@ -37,11 +37,13 @@ public class RankSelectLookUp implements RankSelectDataStructures {
                 high = mid - 1;
             }
         }
-        return -1; // not found
+    throw new IllegalArgumentException("There does not exist a " + r +"th 1 in the vector");    
     }
     public static void main(String[] args) {
         int[] inputArray = new int[]{0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1};
         RankSelectLookUp rs = new RankSelectLookUp(inputArray);
         System.out.println(rs.rank(10));
+        System.out.println(rs.rank(34));
+        System.out.println(rs.select(34));
     }
 }
