@@ -1,6 +1,6 @@
 package final_assignment;
 
-public class RankSelectLookUp {
+public class RankSelectLookUp implements RankSelectDataStructures {
     private int[] array;
     private int[] rankArray;
 
@@ -17,7 +17,11 @@ public class RankSelectLookUp {
     }
 
     public int rank(int i) {
-        return rankArray[i];
+        if (i == 0) {
+            return rankArray[i];
+            
+        }
+        return rankArray[i-1];
     }
 
     public int select(int r) {
@@ -36,9 +40,8 @@ public class RankSelectLookUp {
         return -1; // not found
     }
     public static void main(String[] args) {
-        int[] array = {0, 1, 0, 1, 1, 0, 1, 0};
-        RankSelectLookUp rs = new RankSelectLookUp(array);
-        System.out.println(rs.rank(3));
-        System.out.println(rs.select(3));
+        int[] inputArray = new int[]{0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1};
+        RankSelectLookUp rs = new RankSelectLookUp(inputArray);
+        System.out.println(rs.rank(10));
     }
 }

@@ -1,6 +1,6 @@
 package final_assignment;
 
-public class RankSelectNaive {
+public class RankSelectNaive implements RankSelectDataStructures {
       private int[] array;
    
       public RankSelectNaive(int[] array) {

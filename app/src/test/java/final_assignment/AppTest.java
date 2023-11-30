@@ -7,6 +7,7 @@ package final_assignment;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 public class AppTest {
 
     @Test
@@ -27,18 +28,54 @@ public class AppTest {
         // Add more test cases based on the specific behavior of your Pred method
     }
 
-  
+    //Tests for RankSelectNaive class
     @Test
-    public void testRank() {
-        int[] inputArray = {0, 1, 0, 1, 1, 0, 1, 0};
-        RankSelectLookUp rs = new RankSelectLookUp(inputArray);
-        assertEquals(2, rs.rank(3));
+    public void testNaiveRankMethodReturnsHowMany1sOnTherthNumberOn64LengthVector() {
+    // Generate a vector of length 64 
+        int n = 64;  
+        int[] Fixed64Vector = new int[n];
+        int[] inputArray = new int[] {0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1};
+        for (int i = 0; i < Fixed64Vector.length; i++) {
+            Fixed64Vector[i] = inputArray[i];
+        }
+        RankSelectNaive rs = new RankSelectNaive(Fixed64Vector);
+        assertEquals(0, rs.rank(0));
+        assertEquals(5, rs.rank(10));
+        assertEquals(25, rs.rank(50));
+        assertEquals(32, rs.rank(63));
+    } 
+
+    //Tests for RankSelectLookUp class
+    @Test
+    public void testRankMethodReturnsExpectedResultOn64LengthVector() {
+    // Generate a vector of length 64 
+        int n = 64;  
+        int[] Fixed64Vector = new int[n];
+        int[] inputArray = new int[] {0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1};
+        for (int i = 0; i < Fixed64Vector.length; i++) {
+            Fixed64Vector[i] = inputArray[i];
+        }
+
+        RankSelectLookUp rs = new RankSelectLookUp(Fixed64Vector);
+        assertEquals(0, rs.rank(0));
+        assertEquals(5, rs.rank(10));
+        assertEquals(25, rs.rank(50));
+        assertEquals(32, rs.rank(63));
     }
 
     @Test
-    public void testSelect() {
-        int[] inputArray = {0, 1, 0, 1, 1, 0, 1, 0};
-        RankSelectLookUp rs = new RankSelectLookUp(inputArray);
+    public void testSelectMethodRetrunsExpectedResultOn64LengthVector() {
+    // Generate a vector of length 64 
+        int n = 64;  
+        int[] Fixed64Vector = new int[n];
+        int[] inputArray = new int[] {0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1};
+        for (int i = 0; i < Fixed64Vector.length; i++) {
+            Fixed64Vector[i] = inputArray[i];
+        }        
+        RankSelectLookUp rs = new RankSelectLookUp(Fixed64Vector);
+        assertEquals(0, rs.select(0));
         assertEquals(5, rs.select(3));
+        assertEquals(23, rs.select(13));
+        assertEquals(63, rs.select(33));
     }
 }
