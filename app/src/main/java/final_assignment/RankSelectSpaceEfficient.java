@@ -76,8 +76,8 @@ public class RankSelectSpaceEfficient implements RankSelectDataStructures {
         RankSelectSpaceEfficient rankStructure = new RankSelectSpaceEfficient(bitVector, k);
 
         // Example queries
-        System.out.println("Rank at position 15: " + rankStructure.rank(15));
-        System.out.println("Rank at position 30: " + rankStructure.rank(30));
-        System.out.println("Select at rank 1: " + rankStructure.select(33));
+        System.out.println("1s up to position 15: " + rankStructure.rank(15));
+        System.out.println("1s up to position 30: " + rankStructure.rank(30));
+        System.out.println("Position of 32th element: "  + rankStructure.select(32));
     }
 }
